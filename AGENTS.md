@@ -107,7 +107,9 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - Node requerido por el proyecto: `>=22.12.0`, declarado en `package.json` para que Coolify no seleccione Node 18, incompatible con Vite 8.
 - Dominios configurados en Coolify: `https://autonomyxdr.com` y `https://www.autonomyxdr.com`, con HTTPS forzado y redireccion a la version sin `www`.
 - El despliegue compilado del commit `47dbdc097cec2adb2d70e062221f4e40c48e229b` termino correctamente. Se verificaron `200`, el bundle JavaScript, el CSS y que el PNG transparente servido coincide byte por byte con el asset del repositorio.
-- Para que el dominio publico llegue al despliegue, el registro A raiz debe apuntar a `5.78.120.77`; mantener `www` como CNAME hacia el dominio raiz.
+- DNS aplicado y verificado el 18 de julio de 2026: el registro A raiz de `autonomyxdr.com` apunta a `5.78.120.77` y `www` permanece como CNAME hacia el dominio raiz.
+- HTTPS esta activo para ambos hosts; `www.autonomyxdr.com` redirige a `https://autonomyxdr.com`.
+- Los MX de Zoho (`mx.zoho.com`, `mx2.zoho.com` y `mx3.zoho.com`) se conservaron sin cambios durante la configuracion de la landing.
 
 La implementacion fue verificada en escritorio a 1440x900 y en movil a 390x844, sin overflow horizontal ni errores de consola. El build de produccion tambien fue verificado.
 
