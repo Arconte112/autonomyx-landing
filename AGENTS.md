@@ -103,9 +103,10 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - UUID del proyecto Coolify: `qifbfmqoc5d4csc0r5k3r0is`.
 - UUID de la aplicacion Coolify: `x5tidn5uo4vttpwhpvx52pz2`.
 - Servidor de despliegue: `5.78.120.77`.
-- Build de produccion: sitio estatico SPA con `npm ci`, `npm run build` y directorio publicado `dist`.
+- Build de produccion: Nixpacks genera un sitio estatico SPA con `npm ci`, `npm run build` y directorio publicado `dist`; el contenedor final sirve los archivos compilados con Nginx.
+- Node requerido por el proyecto: `>=22.12.0`, declarado en `package.json` para que Coolify no seleccione Node 18, incompatible con Vite 8.
 - Dominios configurados en Coolify: `https://autonomyxdr.com` y `https://www.autonomyxdr.com`, con HTTPS forzado y redireccion a la version sin `www`.
-- El primer despliegue del commit `7e9c5856427096799dd06e8c12a0e6e75c099f60` termino correctamente y respondio `200` al probarlo directamente contra el servidor.
+- El despliegue compilado del commit `47dbdc097cec2adb2d70e062221f4e40c48e229b` termino correctamente. Se verificaron `200`, el bundle JavaScript, el CSS y que el PNG transparente servido coincide byte por byte con el asset del repositorio.
 - Para que el dominio publico llegue al despliegue, el registro A raiz debe apuntar a `5.78.120.77`; mantener `www` como CNAME hacia el dominio raiz.
 
 La implementacion fue verificada en escritorio a 1440x900 y en movil a 390x844, sin overflow horizontal ni errores de consola. El build de produccion tambien fue verificado.
