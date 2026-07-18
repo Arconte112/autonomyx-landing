@@ -133,7 +133,7 @@ app.get('/api/health', (_request, response) => {
 
 app.use(express.static(distDirectory, { maxAge: '1h', index: false }))
 app.use((request, response, next) => {
-  if (request.method === 'GET' && request.accepts('html')) {
+  if ((request.method === 'GET' || request.method === 'HEAD') && request.accepts('html')) {
     return response.sendFile(path.join(distDirectory, 'index.html'))
   }
   return next()

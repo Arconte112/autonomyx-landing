@@ -94,6 +94,8 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - El dominio actual de AUTONOMYX es `autonomyxdr.com`.
 - `automatadr.com` es el dominio anterior y no debe usarse para nuevas configuraciones de marca o correo.
 - Zoho aloja el correo corporativo. Desde el 18 de julio de 2026, `alejandro@autonomyxdr.com` es la dirección principal real del buzón (no un alias). El antiguo alias `info@retratai.com` fue eliminado de ese buzón.
+- El formulario usa una contraseña especifica de aplicacion de Zoho llamada `AUTONOMYX Landing Form`. El valor vive solo como secreto bloqueado en Coolify.
+- SMTP de Zoho debe usar `smtp.zoho.com:587` con STARTTLS en este servidor; el puerto 465 no completa la conexion desde el VPS.
 
 - Al modificar DNS para la landing, cambiar solamente los registros web necesarios. No alterar MX, SPF/TXT ni otros registros de correo existentes sin una instruccion explicita.
 
@@ -108,7 +110,7 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - Build de produccion: Nixpacks ejecuta `npm ci` y `npm run build`; luego `npm start` levanta el servidor Node que sirve `dist` y expone `/api/contact`.
 - Node requerido por el proyecto: `>=22.12.0`, declarado en `package.json` para que Coolify no seleccione Node 18, incompatible con Vite 8.
 - Dominios configurados en Coolify: `https://autonomyxdr.com` y `https://www.autonomyxdr.com`, con HTTPS forzado y redireccion a la version sin `www`.
-- El despliegue compilado del commit `47dbdc097cec2adb2d70e062221f4e40c48e229b` termino correctamente. Se verificaron `200`, el bundle JavaScript, el CSS y que el PNG transparente servido coincide byte por byte con el asset del repositorio.
+- El despliegue con formulario conectado a Zoho termino correctamente. Se verificaron la landing, el favicon oficial, `/api/health`, una entrega SMTP real y la llegada del mensaje de prueba a la bandeja de `alejandro@autonomyxdr.com`.
 - DNS aplicado y verificado el 18 de julio de 2026: el registro A raiz de `autonomyxdr.com` apunta a `5.78.120.77` y `www` permanece como CNAME hacia el dominio raiz.
 - HTTPS esta activo para ambos hosts; `www.autonomyxdr.com` redirige a `https://autonomyxdr.com`.
 - Los MX de Zoho (`mx.zoho.com`, `mx2.zoho.com` y `mx3.zoho.com`) se conservaron sin cambios durante la configuracion de la landing.
