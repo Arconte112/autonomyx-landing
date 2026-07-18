@@ -99,6 +99,10 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - El build genera HTML pre-renderizado mediante `src/entry-server.tsx` y `scripts/prerender.mjs`; no eliminar este paso porque permite que buscadores y motores de IA reciban el contenido completo sin depender de ejecutar JavaScript. El cliente usa hidratacion sobre ese HTML.
 - Se agrego contenido visible para explicar capacidades, arquitectura flexible y preguntas frecuentes. Mantener sincronizadas las respuestas visibles con el schema FAQ si se modifica el copy.
 - Evitar cifras de ahorro, logos de clientes, casos de exito, testimonios o promesas de rendimiento que no esten aprobados y demostrados.
+- Google Search Console quedo configurado el 18 de julio de 2026 como propiedad de dominio `sc-domain:autonomyxdr.com`, bajo `rainiercf66@gmail.com`, y verificado mediante un registro TXT manual en el DNS de GoDaddy. No eliminar ese TXT mientras se quiera conservar la verificacion.
+- `https://autonomyxdr.com/sitemap.xml` fue enviado a Search Console y aceptado con estado `Correcto`; Google detecto una URL.
+- No usar la autorizacion automatica Domain Connect de Google/GoDaddy para este dominio: el flujo observado incluia `Gmail Setup` y advertia que podia retirar la configuracion de Zoho. Para verificaciones futuras, usar TXT manual sin tocar MX ni correo.
+- Search Console, Google Analytics 4 y Google Ads pueden tener propietarios distintos. Para vincular Analytics con Ads basta con conceder los permisos necesarios; Search Console permanece independiente, aunque opcionalmente puede vincularse para informes organicos y pagados.
 
 ## Google Ads - Verificacion 18 Julio 2026
 
