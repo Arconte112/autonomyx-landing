@@ -51,19 +51,19 @@ const services = [
   {
     icon: 'target' as IconName,
     title: 'Consultoría estratégica',
-    copy: 'Analizamos sus procesos, datos y tecnología para diseñar una ruta clara, priorizada y alineada a sus objetivos de negocio.',
+    copy: 'Convertimos objetivos de negocio en una hoja de ruta de IA priorizada, viable y conectada con la operación real.',
     href: '#proceso',
   },
   {
     icon: 'nodes' as IconName,
     title: 'Automatización con IA',
-    copy: 'Diseñamos y desarrollamos automatizaciones inteligentes que optimizan tareas, reducen errores y liberan tiempo para lo que realmente importa.',
-    href: '#automatizacion',
+    copy: 'Integramos procesos, datos y herramientas para reducir trabajo manual, errores y tiempos de respuesta.',
+    href: '#proceso',
   },
   {
     icon: 'server' as IconName,
     title: 'Soluciones de IA',
-    copy: 'Implementamos asistentes, agentes y modelos de IA en la arquitectura que mejor encaje con su operación: nube, híbrida o privada.',
+    copy: 'Construimos agentes, asistentes y sistemas de IA en la arquitectura que mejor encaje: nube, híbrida o privada.',
     href: '#soluciones-ia',
   },
 ]
@@ -84,10 +84,29 @@ const delivery = [
   { icon: 'chart' as IconName, title: 'Evolucionamos', copy: 'Medimos, aprendemos y mejoramos continuamente.' },
 ]
 
+const faqs = [
+  {
+    question: '¿Qué procesos puede automatizar AUTONOMYX?',
+    answer: 'Evaluamos procesos operativos, administrativos, comerciales y de análisis para identificar dónde la automatización y la inteligencia artificial pueden reducir trabajo manual, errores y tiempos de respuesta.',
+  },
+  {
+    question: '¿Trabajan solamente con inteligencia artificial local?',
+    answer: 'No. Implementamos soluciones en la nube, híbridas o privadas según los requisitos de integración, seguridad, rendimiento y costo de cada empresa.',
+  },
+  {
+    question: '¿La solución puede integrarse con nuestros sistemas?',
+    answer: 'Sí. Diseñamos cada solución para conectarse con aplicaciones, bases de datos, documentos, APIs y herramientas que ya forman parte de la operación.',
+  },
+  {
+    question: '¿Cómo comienza un proyecto de inteligencia artificial?',
+    answer: 'Comenzamos con un diagnóstico del proceso, los datos y los objetivos. Luego priorizamos el caso de uso, definimos la arquitectura y establecemos un plan de implementación medible.',
+  },
+]
+
 function Brand({ inverse = false }: { inverse?: boolean }) {
   return (
     <a className={inverse ? 'brand brand-inverse' : 'brand'} href="#inicio" aria-label="AUTONOMYX, ir al inicio">
-      <span className="brand-symbol"><img src="/brand/autonomyx-logo-transparent.png" alt="" /></span>
+      <span className="brand-symbol"><img src="/brand/autonomyx-logo-transparent.png" alt="" width="1024" height="1024" decoding="async" /></span>
       <span className="brand-word">AUTONOMYX</span>
     </a>
   )
@@ -319,9 +338,9 @@ function App() {
       <main>
         <section className="hero section-frame" id="inicio">
           <div className="hero-copy">
-            <div className="eyebrow"><span/> IA aplicada a operaciones reales</div>
-            <h1>Convierta procesos en sistemas inteligentes.</h1>
-            <p>Diseñamos e implementamos soluciones y automatizaciones con IA para operar con más velocidad, control y claridad.</p>
+            <div className="eyebrow"><span/> Consultoría e implementación de IA · República Dominicana</div>
+            <h1>IA empresarial, de la estrategia a producción.</h1>
+            <p>AUTONOMYX diseña e implementa automatizaciones, agentes y soluciones de inteligencia artificial integradas a los procesos, datos y sistemas de su empresa.</p>
             <div className="hero-actions">
               <button className="button button-dark contact-trigger" type="button" onClick={openContact}>Hablar con un consultor <Arrow/></button>
               <a className="button button-light" href="#consultoria">Ver soluciones <Arrow/></a>
@@ -330,11 +349,19 @@ function App() {
           <HeroDiagram />
         </section>
 
-        <section className="services" id="consultoria" aria-label="Servicios de AUTONOMYX">
+        <section className="services-intro section-frame" id="consultoria">
+          <div>
+            <span className="section-kicker">Capacidades de AUTONOMYX</span>
+            <h2>Consultoría, ingeniería e implementación en un solo equipo.</h2>
+          </div>
+          <p>No entregamos una recomendación aislada ni una demostración sin continuidad. Identificamos el caso correcto, construimos la solución, la integramos con su operación y la llevamos a producción.</p>
+        </section>
+
+        <section className="services" aria-label="Servicios de consultoría, automatización e inteligencia artificial">
           {services.map((service, index) => (
             <article className="service-card" id={index === 1 ? 'automatizacion' : undefined} key={service.title}>
               <div className="icon-box"><Icon name={service.icon} size={29}/></div>
-              <h2>{service.title}</h2>
+              <h3>{service.title}</h3>
               <p>{service.copy}</p>
               <a href={service.href}>Más información <Arrow/></a>
             </article>
@@ -362,13 +389,13 @@ function App() {
         <section className="local-ai section-block" id="soluciones-ia">
           <div className="local-copy">
             <span className="section-kicker">Infraestructura flexible</span>
-            <h2>IA privada, cuando el control importa.</h2>
-            <p>Cada operación exige una arquitectura distinta. Podemos integrar servicios en la nube o implementar LLMs locales para que la información sensible permanezca dentro de su infraestructura.</p>
+            <h2>La arquitectura correcta para cada operación.</h2>
+            <p>No todas las empresas necesitan la misma infraestructura. Integramos servicios de IA en la nube y, cuando la privacidad o el control lo requieren, implementamos modelos locales, entornos híbridos y conexiones seguras con sus sistemas internos.</p>
             <ul>
-              <li><Icon name="lock" size={17}/>Datos que permanecen en su entorno</li>
-              <li><Icon name="server" size={17}/>Despliegue local, híbrido o conectado a la nube</li>
-              <li><Icon name="file" size={17}/>Cumplimiento y auditoría simplificados</li>
-              <li><Icon name="chart" size={17}/>Rendimiento y costos predecibles</li>
+              <li><Icon name="server" size={17}/>Despliegue cloud, híbrido o privado</li>
+              <li><Icon name="nodes" size={17}/>Integración con datos y aplicaciones existentes</li>
+              <li><Icon name="lock" size={17}/>Controles acordes con la sensibilidad de la información</li>
+              <li><Icon name="chart" size={17}/>Rendimiento y costos alineados al caso de uso</li>
             </ul>
           </div>
           <LocalArchitecture />
@@ -392,6 +419,22 @@ function App() {
           </div>
         </section>
 
+        <section className="faq section-block" id="preguntas">
+          <div className="faq-heading">
+            <span className="section-kicker">Preguntas frecuentes</span>
+            <h2>Antes de implementar IA.</h2>
+            <p>Respuestas directas sobre cómo abordamos consultoría, automatización e integración de inteligencia artificial para empresas.</p>
+          </div>
+          <div className="faq-list">
+            {faqs.map((faq, index) => (
+              <details key={faq.question} open={index === 0}>
+                <summary>{faq.question}<span aria-hidden="true">+</span></summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         <section className="contact" id="contacto">
           <div className="contact-grid left-grid" aria-hidden="true"/><div className="contact-grid right-grid" aria-hidden="true"/>
           <span className="contact-dot dot-one"/><span className="contact-dot dot-two"/>
@@ -409,9 +452,9 @@ function App() {
           <a href="#consultoria">Consultoría</a>
           <a href="#automatizacion">Automatización</a>
           <a href="#soluciones-ia">Soluciones de IA</a>
-          <a href="#proceso">Proceso</a>
+          <a href="#preguntas">Preguntas</a>
         </nav>
-        <p>© {new Date().getFullYear()} AUTONOMYX SRL</p>
+        <p>República Dominicana · © {new Date().getFullYear()} AUTONOMYX SRL</p>
       </footer>
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>

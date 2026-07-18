@@ -89,6 +89,17 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - El formulario envia mediante `POST /api/contact`; el backend valida los datos, incluye honeypot y limite basico por IP, y entrega el mensaje real a `alejandro@autonomyxdr.com` mediante SMTP de Zoho.
 - Variables requeridas en produccion: `ZOHO_SMTP_USER`, `ZOHO_SMTP_PASSWORD` y `CONTACT_TO_EMAIL`. `ZOHO_SMTP_PASSWORD` es secreto y debe vivir solo en Coolify; nunca guardarlo en Git, logs o este archivo.
 
+## SEO Y Posicionamiento - 18 Julio 2026
+
+- Posicionamiento principal: AUTONOMYX es una firma de consultoria, ingenieria e implementacion de inteligencia artificial para empresas; no una agencia generica de bots ni un proveedor dedicado solamente a IA local.
+- Mensaje central aprobado para la landing: `IA empresarial, de la estrategia a produccion.` La diferencia comercial es acompañar el recorrido completo: identificar el caso, construir, integrar y llevar a produccion.
+- Mercado inicial visible: empresas en Republica Dominicana, con capacidad de servicio para America Latina.
+- Temas de busqueda prioritarios: consultoria de inteligencia artificial, automatizacion con IA para empresas, implementacion de IA empresarial, agentes de IA, integracion de sistemas e IA privada/hibrida.
+- La landing incluye title y description orientados a busqueda local, URL canonica, Open Graph/Twitter, datos estructurados de Organization/WebSite/Service/FAQPage, `robots.txt` y `sitemap.xml`.
+- El build genera HTML pre-renderizado mediante `src/entry-server.tsx` y `scripts/prerender.mjs`; no eliminar este paso porque permite que buscadores y motores de IA reciban el contenido completo sin depender de ejecutar JavaScript. El cliente usa hidratacion sobre ese HTML.
+- Se agrego contenido visible para explicar capacidades, arquitectura flexible y preguntas frecuentes. Mantener sincronizadas las respuestas visibles con el schema FAQ si se modifica el copy.
+- Evitar cifras de ahorro, logos de clientes, casos de exito, testimonios o promesas de rendimiento que no esten aprobados y demostrados.
+
 ## Dominio Y Correo
 
 - El dominio actual de AUTONOMYX es `autonomyxdr.com`.
