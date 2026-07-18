@@ -100,6 +100,14 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - Se agrego contenido visible para explicar capacidades, arquitectura flexible y preguntas frecuentes. Mantener sincronizadas las respuestas visibles con el schema FAQ si se modifica el copy.
 - Evitar cifras de ahorro, logos de clientes, casos de exito, testimonios o promesas de rendimiento que no esten aprobados y demostrados.
 
+## Google Ads - Verificacion 18 Julio 2026
+
+- El login principal de Google ya tiene una cuenta de Google Ads existente desde el 4 de agosto de 2021, sin campañas creadas y con presupuesto historico visible de 0 US$/dia.
+- Esa cuenta antigua no cumple el requisito de cuenta menor de 14 dias para promociones de nuevo anunciante; no usarla para intentar reclamar el credito inicial.
+- La pagina oficial, con el login activo, mostro una oferta condicionada de `gastar US$500 en los primeros 60 dias y recibir US$500 en credito`. La oferta se mostro con terminos estadounidenses; el monto y la disponibilidad definitivos deben reconfirmarse al configurar facturacion para Republica Dominicana.
+- Via recomendada si se aprueba la campaña: crear una cuenta de Google Ads separada para AUTONOMYX bajo el mismo login, seleccionar la promocion antes de completar la facturacion y dejar la campaña pausada hasta tener conversiones y presupuesto aprobados.
+- No crear la cuenta, agregar forma de pago ni activar gasto sin confirmacion explicita de Alejandro.
+
 ## Dominio Y Correo
 
 - El dominio actual de AUTONOMYX es `autonomyxdr.com`.
