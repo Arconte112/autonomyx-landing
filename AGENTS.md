@@ -91,7 +91,22 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 
 - El dominio actual de AUTONOMYX es `autonomyxdr.com`.
 - `automatadr.com` es el dominio anterior y no debe usarse para nuevas configuraciones de marca o correo.
-- Zoho aloja el correo corporativo. La cuenta principal actual de Alejandro es `alejandro@autonomyxdr.com`.
+- Zoho aloja el correo corporativo. Desde el 18 de julio de 2026, `alejandro@autonomyxdr.com` es la dirección principal real del buzón (no un alias). El antiguo alias `info@retratai.com` fue eliminado de ese buzón.
+
+- Al modificar DNS para la landing, cambiar solamente los registros web necesarios. No alterar MX, SPF/TXT ni otros registros de correo existentes sin una instruccion explicita.
+
+## Repositorio Y Despliegue - 18 Julio 2026
+
+- Repositorio publico: `https://github.com/Arconte112/autonomyx-landing`.
+- Rama de produccion: `main`.
+- Coolify: proyecto `Autonomyx`, ambiente `production`, aplicacion `landing`.
+- UUID del proyecto Coolify: `qifbfmqoc5d4csc0r5k3r0is`.
+- UUID de la aplicacion Coolify: `x5tidn5uo4vttpwhpvx52pz2`.
+- Servidor de despliegue: `5.78.120.77`.
+- Build de produccion: sitio estatico SPA con `npm ci`, `npm run build` y directorio publicado `dist`.
+- Dominios configurados en Coolify: `https://autonomyxdr.com` y `https://www.autonomyxdr.com`, con HTTPS forzado y redireccion a la version sin `www`.
+- El primer despliegue del commit `7e9c5856427096799dd06e8c12a0e6e75c099f60` termino correctamente y respondio `200` al probarlo directamente contra el servidor.
+- Para que el dominio publico llegue al despliegue, el registro A raiz debe apuntar a `5.78.120.77`; mantener `www` como CNAME hacia el dominio raiz.
 
 La implementacion fue verificada en escritorio a 1440x900 y en movil a 390x844, sin overflow horizontal ni errores de consola. El build de produccion tambien fue verificado.
 
