@@ -112,6 +112,7 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - Dominios configurados en Coolify: `https://autonomyxdr.com` y `https://www.autonomyxdr.com`, con HTTPS forzado y redireccion a la version sin `www`.
 - El despliegue con formulario conectado a Zoho termino correctamente. Se verificaron la landing, el favicon oficial, `/api/health`, una entrega SMTP real y la llegada del mensaje de prueba a la bandeja de `alejandro@autonomyxdr.com`.
 - DNS aplicado y verificado el 18 de julio de 2026: el registro A raiz de `autonomyxdr.com` apunta a `5.78.120.77` y `www` permanece como CNAME hacia el dominio raiz.
+- Incidente de propagacion del 18 de julio de 2026: aunque el DNS autoritativo y los resolvers publicos ya devolvian `5.78.120.77`, Windows conservaba en paralelo las IP antiguas de GoDaddy (`13.248.243.5` y `76.223.105.230`). La caché DNS local se vacio y la resolucion quedo verificada solo contra `5.78.120.77`. Si la pagina antigua reaparece en un equipo, comprobar primero la caché DNS/del navegador antes de modificar registros.
 - HTTPS esta activo para ambos hosts; `www.autonomyxdr.com` redirige a `https://autonomyxdr.com`.
 - Los MX de Zoho (`mx.zoho.com`, `mx2.zoho.com` y `mx3.zoho.com`) se conservaron sin cambios durante la configuracion de la landing.
 
