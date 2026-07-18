@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
 
 type IconName =
   | 'target'
@@ -161,9 +161,136 @@ function LocalArchitecture() {
   )
 }
 
+function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  useEffect(() => {
+    if (!open) return
+
+    setStatus('idle')
+    setErrorMessage('')
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [open, onClose])
+
+  if (!open) return null
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setStatus('sending')
+    setErrorMessage('')
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const payload = Object.fromEntries(formData.entries())
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      const result = await response.json() as { ok?: boolean; error?: string }
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'No pudimos enviar su solicitud.')
+      }
+
+      form.reset()
+      setStatus('success')
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'No pudimos enviar su solicitud.')
+      setStatus('error')
+    }
+  }
+
+  return (
+    <div className="contact-modal" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <div className="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+        <button className="modal-close" type="button" aria-label="Cerrar formulario" onClick={onClose}>
+          <Icon name="close" size={22}/>
+        </button>
+
+        {status === 'success' ? (
+          <div className="form-success" aria-live="polite">
+            <span aria-hidden="true">✓</span>
+            <p className="form-kicker">Solicitud enviada</p>
+            <h2 id="contact-title">Gracias por contactarnos.</h2>
+            <p>Recibimos su información. Un consultor de AUTONOMYX se comunicará con usted.</p>
+            <button className="button button-dark contact-trigger" type="button" onClick={onClose}>Cerrar</button>
+          </div>
+        ) : (
+          <>
+            <div className="form-heading">
+              <span className="form-kicker">Hablemos de su operación</span>
+              <h2 id="contact-title">¿Qué podemos transformar?</h2>
+              <p>Comparta el contexto esencial. Revisaremos su necesidad y le responderemos directamente.</p>
+            </div>
+
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <label>
+                  <span>Nombre *</span>
+                  <input name="name" type="text" autoComplete="name" minLength={2} maxLength={100} required autoFocus />
+                </label>
+                <label>
+                  <span>Empresa</span>
+                  <input name="company" type="text" autoComplete="organization" maxLength={120} />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  <span>Correo corporativo *</span>
+                  <input name="email" type="email" autoComplete="email" maxLength={254} required />
+                </label>
+                <label>
+                  <span>Teléfono</span>
+                  <input name="phone" type="tel" autoComplete="tel" maxLength={50} />
+                </label>
+              </div>
+              <label>
+                <span>¿Qué necesita automatizar o mejorar? *</span>
+                <textarea name="message" rows={5} minLength={20} maxLength={3000} required />
+              </label>
+              <label className="website-field" aria-hidden="true">
+                <span>Sitio web</span>
+                <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+              </label>
+              <div className="form-footer">
+                <p>Usaremos sus datos únicamente para responder esta solicitud.</p>
+                <button className="button button-dark contact-trigger" type="submit" disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Enviando…' : <>Enviar solicitud <Arrow/></>}
+                </button>
+              </div>
+              <p className="form-status" role="alert" aria-live="polite">
+                {status === 'error' ? errorMessage : ''}
+              </p>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [contactOpen, setContactOpen] = useState(false)
   const closeMenu = () => setMenuOpen(false)
+  const openContact = () => {
+    closeMenu()
+    setContactOpen(true)
+  }
 
   return (
     <>
@@ -176,7 +303,7 @@ function App() {
             <a href="#soluciones-ia" onClick={closeMenu}>Soluciones de IA</a>
             <a href="#proceso" onClick={closeMenu}>Proceso</a>
           </nav>
-          <a className="button button-dark header-cta" href="#contacto">Hablar con un consultor</a>
+          <button className="button button-dark header-cta contact-trigger" type="button" onClick={openContact}>Hablar con un consultor</button>
           <button
             className="menu-button"
             type="button"
@@ -196,7 +323,7 @@ function App() {
             <h1>Convierta procesos en sistemas inteligentes.</h1>
             <p>Diseñamos e implementamos soluciones y automatizaciones con IA para operar con más velocidad, control y claridad.</p>
             <div className="hero-actions">
-              <a className="button button-dark" href="#contacto">Hablar con un consultor <Arrow/></a>
+              <button className="button button-dark contact-trigger" type="button" onClick={openContact}>Hablar con un consultor <Arrow/></button>
               <a className="button button-light" href="#consultoria">Ver soluciones <Arrow/></a>
             </div>
           </div>
@@ -271,7 +398,7 @@ function App() {
           <div className="contact-content">
             <Brand inverse />
             <p>Convierta procesos en sistemas inteligentes.</p>
-            <a className="button button-white" href="mailto:rainiercf66@gmail.com?subject=Consultoría%20AUTONOMYX">Hablar con un consultor <Arrow/></a>
+            <button className="button button-white contact-trigger" type="button" onClick={openContact}>Hablar con un consultor <Arrow/></button>
           </div>
         </section>
       </main>
@@ -286,6 +413,7 @@ function App() {
         </nav>
         <p>© {new Date().getFullYear()} AUTONOMYX SRL</p>
       </footer>
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   )
 }

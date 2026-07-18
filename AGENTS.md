@@ -84,8 +84,10 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - El tercer servicio se presenta como `Soluciones de IA`; la implementacion local aparece como una opcion dentro de una arquitectura flexible, no como la oferta completa.
 - Logo oficial original: `public/brand/autonomyx-logo.png`, copiado sin modificar desde `C:\Users\raini\Desktop\No importantes\AUTONOMYX\logo autonomyx.png`.
 - Logo usado por la web: `public/brand/autonomyx-logo-transparent.png`, con el fondo removido y la geometria original preservada. Se usa en header, cierre y footer mediante recorte visual CSS.
-- El CTA final abre un correo a `rainiercf66@gmail.com`; sustituirlo cuando AUTONOMYX defina un correo comercial o un formulario definitivo.
-- No hay backend ni formulario conectado en esta fase.
+- El favicon usa el isotipo recortado del logo oficial en `public/favicon.png`.
+- Todos los CTA `Hablar con un consultor` abren un formulario modal responsive con nombre, empresa, correo, telefono y descripcion de la necesidad.
+- El formulario envia mediante `POST /api/contact`; el backend valida los datos, incluye honeypot y limite basico por IP, y entrega el mensaje real a `alejandro@autonomyxdr.com` mediante SMTP de Zoho.
+- Variables requeridas en produccion: `ZOHO_SMTP_USER`, `ZOHO_SMTP_PASSWORD` y `CONTACT_TO_EMAIL`. `ZOHO_SMTP_PASSWORD` es secreto y debe vivir solo en Coolify; nunca guardarlo en Git, logs o este archivo.
 
 ## Dominio Y Correo
 
@@ -103,7 +105,7 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - UUID del proyecto Coolify: `qifbfmqoc5d4csc0r5k3r0is`.
 - UUID de la aplicacion Coolify: `x5tidn5uo4vttpwhpvx52pz2`.
 - Servidor de despliegue: `5.78.120.77`.
-- Build de produccion: Nixpacks genera un sitio estatico SPA con `npm ci`, `npm run build` y directorio publicado `dist`; el contenedor final sirve los archivos compilados con Nginx.
+- Build de produccion: Nixpacks ejecuta `npm ci` y `npm run build`; luego `npm start` levanta el servidor Node que sirve `dist` y expone `/api/contact`.
 - Node requerido por el proyecto: `>=22.12.0`, declarado en `package.json` para que Coolify no seleccione Node 18, incompatible con Vite 8.
 - Dominios configurados en Coolify: `https://autonomyxdr.com` y `https://www.autonomyxdr.com`, con HTTPS forzado y redireccion a la version sin `www`.
 - El despliegue compilado del commit `47dbdc097cec2adb2d70e062221f4e40c48e229b` termino correctamente. Se verificaron `200`, el bundle JavaScript, el CSS y que el PNG transparente servido coincide byte por byte con el asset del repositorio.

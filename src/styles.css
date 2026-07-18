@@ -926,6 +926,198 @@ footer nav a:hover {
 .dot-one { left: 16%; top: 38%; }
 .dot-two { right: 13%; bottom: 24%; }
 
+.contact-trigger {
+  cursor: pointer;
+}
+
+.contact-trigger:disabled {
+  cursor: wait;
+  opacity: .65;
+  transform: none;
+}
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  overflow-y: auto;
+  background: rgba(6, 6, 6, .76);
+  backdrop-filter: blur(10px);
+  animation: fade .2s ease both;
+}
+
+.contact-dialog {
+  position: relative;
+  width: min(100%, 780px);
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+  padding: clamp(34px, 5vw, 58px);
+  border: 1px solid #d4d4d4;
+  background: #fff;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .35);
+  animation: rise .3s ease both;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  border-color: #111;
+}
+
+.form-kicker {
+  display: block;
+  color: var(--signal);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.form-heading {
+  max-width: 590px;
+  margin-bottom: 34px;
+}
+
+.form-heading h2,
+.form-success h2 {
+  margin: 10px 0 12px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.form-heading p,
+.form-success > p:last-of-type {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.contact-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form label > span {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid #cfcfcf;
+  border-radius: 0;
+  outline: none;
+  background: #fff;
+  color: #111;
+  font: 500 13px/1.5 'Manrope', sans-serif;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.contact-form input {
+  height: 48px;
+  padding: 0 14px;
+}
+
+.contact-form textarea {
+  min-height: 126px;
+  padding: 13px 14px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #111;
+  box-shadow: inset 3px 0 0 var(--signal);
+}
+
+.website-field {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 4px;
+}
+
+.form-footer p {
+  max-width: 310px;
+  margin: 0;
+  color: #7b7b7b;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.form-status {
+  min-height: 18px;
+  margin: -10px 0 0;
+  color: #b42318;
+  font-size: 11px;
+}
+
+.form-success {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.form-success > span:first-child {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 24px;
+  display: grid;
+  place-items: center;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 24px;
+}
+
+.form-success .button {
+  margin-top: 28px;
+}
+
 footer {
   min-height: 92px;
   max-width: 1480px;
@@ -1210,6 +1402,38 @@ footer p {
 
   .contact p {
     font-size: 13px;
+  }
+
+  .contact-modal {
+    align-items: start;
+    padding: 12px;
+  }
+
+  .contact-dialog {
+    max-height: calc(100vh - 24px);
+    padding: 56px 22px 26px;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .form-heading {
+    margin-bottom: 26px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form-footer .button {
+    width: 100%;
   }
 
   footer {
