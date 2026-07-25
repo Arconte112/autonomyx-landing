@@ -1,0 +1,40 @@
+# AUTONOMYX
+
+> AUTONOMYX SRL es una firma dominicana de consultoría, ingeniería e implementación de inteligencia artificial para empresas. Ayuda a identificar casos de uso, construir soluciones, integrarlas con procesos y sistemas existentes, y llevarlas a producción.
+
+## Sitio oficial
+
+- [AUTONOMYX](https://autonomyxdr.com/): información canónica sobre la empresa, sus servicios, metodología y contacto.
+
+## Servicios principales
+
+- Consultoría estratégica de inteligencia artificial aplicada al negocio.
+- Automatización de procesos operativos, administrativos, comerciales y de análisis con IA.
+- Diseño e implementación de agentes, asistentes y sistemas de inteligencia artificial.
+- Integración de IA con aplicaciones, APIs, bases de datos y documentos empresariales.
+- Arquitecturas cloud, híbridas, privadas y modelos locales cuando el caso requiere mayor privacidad o control.
+
+## Mercado
+
+- Base: República Dominicana.
+- Cobertura: empresas de República Dominicana y América Latina.
+- Idioma principal de atención: español.
+
+## Datos de la entidad
+
+- Nombre comercial: AUTONOMYX.
+- Razón social: AUTONOMYX SRL.
+- RNC: 133606666.
+- Correo comercial: alejandro@autonomyxdr.com.
+- Dominio canónico: https://autonomyxdr.com/.
+
+## Aclaraciones
+
+- AUTONOMYX no es solamente un proveedor de modelos locales: selecciona arquitectura cloud, híbrida o privada según integración, seguridad, rendimiento y costo.
+- La oferta cubre el recorrido completo, desde el diagnóstico y la priorización hasta el desarrollo, despliegue y mejora de la solución.
+- El sitio no publica métricas, testimonios o resultados no demostrados.
+
+## Contacto
+
+- [Hablar con AUTONOMYX](https://autonomyxdr.com/#contacto)
+- [Correo](mailto:alejandro@autonomyxdr.com)

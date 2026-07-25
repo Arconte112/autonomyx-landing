@@ -86,6 +86,10 @@ const delivery = [
 
 const faqs = [
   {
+    question: '¿Qué es AUTONOMYX?',
+    answer: 'AUTONOMYX SRL es una firma dominicana de consultoría, ingeniería e implementación de inteligencia artificial para empresas. Identifica casos de uso, construye soluciones, las integra con la operación y las lleva a producción.',
+  },
+  {
     question: '¿Qué procesos puede automatizar AUTONOMYX?',
     answer: 'Evaluamos procesos operativos, administrativos, comerciales y de análisis para identificar dónde la automatización y la inteligencia artificial pueden reducir trabajo manual, errores y tiempos de respuesta.',
   },
@@ -98,8 +102,16 @@ const faqs = [
     answer: 'Sí. Diseñamos cada solución para conectarse con aplicaciones, bases de datos, documentos, APIs y herramientas que ya forman parte de la operación.',
   },
   {
+    question: '¿AUTONOMYX trabaja con empresas fuera de República Dominicana?',
+    answer: 'Sí. AUTONOMYX tiene base en República Dominicana y puede prestar consultoría, desarrollo e implementación remota a empresas de América Latina.',
+  },
+  {
     question: '¿Cómo comienza un proyecto de inteligencia artificial?',
     answer: 'Comenzamos con un diagnóstico del proceso, los datos y los objetivos. Luego priorizamos el caso de uso, definimos la arquitectura y establecemos un plan de implementación medible.',
+  },
+  {
+    question: '¿Cómo puedo contactar a AUTONOMYX?',
+    answer: 'Puede completar el formulario de contacto en autonomyxdr.com o escribir a alejandro@autonomyxdr.com para conversar sobre su proceso, necesidad o proyecto de inteligencia artificial.',
   },
 ]
 
@@ -317,6 +329,7 @@ function App() {
         <div className="header-inner">
           <Brand />
           <nav className={menuOpen ? 'nav is-open' : 'nav'} aria-label="Navegación principal">
+            <a href="#empresa" onClick={closeMenu}>Empresa</a>
             <a href="#consultoria" onClick={closeMenu}>Consultoría</a>
             <a href="#automatizacion" onClick={closeMenu}>Automatización</a>
             <a href="#soluciones-ia" onClick={closeMenu}>Soluciones de IA</a>
@@ -347,6 +360,30 @@ function App() {
             </div>
           </div>
           <HeroDiagram />
+        </section>
+
+        <section className="entity-summary section-frame" id="empresa" aria-labelledby="entity-title">
+          <div className="entity-intro">
+            <span className="section-kicker">AUTONOMYX en breve</span>
+            <h2 id="entity-title">¿Qué es AUTONOMYX?</h2>
+          </div>
+          <div className="entity-content">
+            <p><strong>AUTONOMYX SRL es una firma dominicana de consultoría, ingeniería e implementación de inteligencia artificial para empresas.</strong> Identificamos casos de uso, construimos soluciones, las integramos con la operación y las llevamos a producción.</p>
+            <dl className="entity-facts">
+              <div>
+                <dt>Base</dt>
+                <dd>República Dominicana</dd>
+              </div>
+              <div>
+                <dt>Cobertura</dt>
+                <dd>República Dominicana y América Latina</dd>
+              </div>
+              <div>
+                <dt>Especialidad</dt>
+                <dd>IA empresarial y automatización de procesos</dd>
+              </div>
+            </dl>
+          </div>
         </section>
 
         <section className="services-intro section-frame" id="consultoria">
@@ -449,12 +486,16 @@ function App() {
       <footer>
         <Brand />
         <nav aria-label="Navegación del pie de página">
+          <a href="#empresa">Empresa</a>
           <a href="#consultoria">Consultoría</a>
           <a href="#automatizacion">Automatización</a>
           <a href="#soluciones-ia">Soluciones de IA</a>
           <a href="#preguntas">Preguntas</a>
         </nav>
-        <p>República Dominicana · © {new Date().getFullYear()} AUTONOMYX SRL</p>
+        <div className="footer-meta">
+          <a href="mailto:alejandro@autonomyxdr.com">alejandro@autonomyxdr.com</a>
+          <p>República Dominicana · © {new Date().getFullYear()} AUTONOMYX SRL</p>
+        </div>
       </footer>
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>

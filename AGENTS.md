@@ -104,6 +104,16 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - No usar la autorizacion automatica Domain Connect de Google/GoDaddy para este dominio: el flujo observado incluia `Gmail Setup` y advertia que podia retirar la configuracion de Zoho. Para verificaciones futuras, usar TXT manual sin tocar MX ni correo.
 - Search Console, Google Analytics 4 y Google Ads pueden tener propietarios distintos. Para vincular Analytics con Ads basta con conceder los permisos necesarios; Search Console permanece independiente, aunque opcionalmente puede vincularse para informes organicos y pagados.
 
+## Descubrimiento En Motores De IA - 25 Julio 2026
+
+- `public/robots.txt` permite de forma explicita los crawlers de busqueda y recuperacion de ChatGPT, Claude y Perplexity, ademas del acceso general. Mantener permitidos al menos `OAI-SearchBot`, `ChatGPT-User`, `Claude-SearchBot`, `Claude-User`, `PerplexityBot` y `Perplexity-User` mientras el objetivo sea aparecer en sus respuestas.
+- `public/llms.txt` ofrece un resumen legible por asistentes con la descripcion canonica de AUTONOMYX, servicios, mercado, datos de entidad, aclaraciones y contacto. Es una señal complementaria y no sustituye el HTML, sitemap, datos estructurados ni autoridad externa.
+- La landing incluye una seccion visible `Que es AUTONOMYX`, datos concretos de base, cobertura y especialidad, y preguntas frecuentes ampliadas. Mantener estos textos alineados con el JSON-LD y con `llms.txt`.
+- El JSON-LD identifica con mayor precision `Organization`, `WebSite`, `WebPage`, `Service`, catalogo de servicios, punto de contacto, area atendida y preguntas frecuentes. No agregar capacidades, clientes, cifras o resultados que no esten visibles y demostrados.
+- El servidor devuelve la homepage solamente en `/`, redirige `/index.html` a la URL canonica y responde 404/noindex para rutas HTML inexistentes, evitando duplicados y soft 404.
+- IndexNow esta preparado con su archivo de verificacion publico y el comando `npm run indexnow:submit`. Ejecutarlo solo despues de que la version actualizada este desplegada y accesible en `https://autonomyxdr.com/`.
+- Estas mejoras habilitan rastreo y hacen el contenido mas facil de entender/citar, pero no garantizan inclusion. La autoridad externa, menciones consistentes, enlaces y contenido original siguen siendo necesarios para aumentar visibilidad real.
+
 ## Google Ads - Verificacion 18 Julio 2026
 
 - El login principal de Google ya tiene una cuenta de Google Ads existente desde el 4 de agosto de 2021, sin campañas creadas y con presupuesto historico visible de 0 US$/dia.

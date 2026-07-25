@@ -131,10 +131,31 @@ app.get('/api/health', (_request, response) => {
   response.json({ ok: true, emailConfigured: Boolean(transporter) })
 })
 
-app.use(express.static(distDirectory, { maxAge: '1h', index: false }))
+app.get('/index.html', (_request, response) => {
+  response.redirect(301, '/')
+})
+
+app.use(express.static(distDirectory, {
+  maxAge: '1h',
+  index: false,
+  setHeaders(response, filePath) {
+    if (filePath.endsWith('llms.txt')) {
+      response.setHeader('Content-Type', 'text/plain; charset=utf-8')
+      response.setHeader('X-Robots-Tag', 'index, follow')
+    }
+  },
+}))
+
+app.get('/', (_request, response) => {
+  response.setHeader('Content-Language', 'es-DO')
+  response.setHeader('X-Robots-Tag', 'index, follow, max-image-preview:large, max-snippet:-1')
+  response.sendFile(path.join(distDirectory, 'index.html'))
+})
+
 app.use((request, response, next) => {
   if ((request.method === 'GET' || request.method === 'HEAD') && request.accepts('html')) {
-    return response.sendFile(path.join(distDirectory, 'index.html'))
+    response.setHeader('X-Robots-Tag', 'noindex, nofollow')
+    return response.status(404).type('html').send('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Página no encontrada | AUTONOMYX</title></head><body><main><h1>Página no encontrada</h1><p><a href="/">Volver a AUTONOMYX</a></p></main></body></html>')
   }
   return next()
 })
