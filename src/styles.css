@@ -726,86 +726,6 @@ footer nav a:hover {
   font-weight: 600;
 }
 
-.founder-proof {
-  display: grid;
-  grid-template-columns: minmax(310px, .8fr) minmax(560px, 1.2fr);
-  gap: clamp(56px, 9vw, 150px);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: #f7f7f7;
-}
-
-.founder-proof-heading {
-  max-width: 610px;
-}
-
-.founder-proof-heading h2 {
-  margin: 20px 0 0;
-  font-size: clamp(36px, 4.1vw, 60px);
-  line-height: 1.06;
-  letter-spacing: -.055em;
-  font-weight: 600;
-}
-
-.founder-proof-heading > p {
-  margin: 28px 0 0;
-  color: #5e5e5e;
-  font-size: 14px;
-  line-height: 1.85;
-}
-
-.founder-proof-grid {
-  border-top: 1px solid #cfcfcf;
-}
-
-.founder-proof-grid article {
-  min-height: 154px;
-  padding: 26px 0;
-  display: grid;
-  grid-template-columns: 120px minmax(140px, .55fr) minmax(240px, 1fr);
-  align-items: start;
-  gap: 24px;
-  border-bottom: 1px solid #cfcfcf;
-}
-
-.founder-proof-grid article > div {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.founder-proof-grid article span,
-.founder-proof-grid article small {
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.founder-proof-grid article span {
-  color: var(--signal);
-}
-
-.founder-proof-grid article small {
-  color: #777;
-  line-height: 1.5;
-}
-
-.founder-proof-grid h3 {
-  margin: 0;
-  font-size: 20px;
-  line-height: 1.25;
-  letter-spacing: -.035em;
-  font-weight: 600;
-}
-
-.founder-proof-grid p {
-  margin: 0;
-  color: #666;
-  font-size: 12px;
-  line-height: 1.75;
-}
-
 .section-block {
   padding-top: clamp(92px, 9vw, 142px);
   padding-bottom: clamp(92px, 9vw, 142px);
@@ -1614,15 +1534,6 @@ footer p {
     max-width: 760px;
   }
 
-  .founder-proof {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-
-  .founder-proof-heading {
-    max-width: 720px;
-  }
-
   .service-card {
     min-height: 345px;
     border-right: 0;
@@ -1701,20 +1612,6 @@ footer p {
 
   .entity-facts div {
     padding-top: 16px;
-  }
-
-  .founder-proof-grid article {
-    grid-template-columns: 72px 1fr;
-    gap: 18px;
-  }
-
-  .founder-proof-grid article > div {
-    grid-row: 1 / span 2;
-  }
-
-  .founder-proof-grid h3,
-  .founder-proof-grid p {
-    grid-column: 2;
   }
 
   .button {
