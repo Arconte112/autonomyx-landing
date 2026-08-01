@@ -8,8 +8,6 @@ type IconName =
   | 'code'
   | 'chart'
   | 'users'
-  | 'tools'
-  | 'rocket'
   | 'database'
   | 'file'
   | 'spark'
@@ -34,8 +32,6 @@ function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
     code: <><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 3l-4 18"/></>,
     chart: <><path d="M4 20V10M10 20V4M16 20v-7M22 20V7M2 20h22"/></>,
     users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></>,
-    tools: <><path d="M14.7 6.3a4 4 0 0 0-5-5L7.4 3.6l3 3 2.3-2.3a4 4 0 0 0 2 2Z"/><path d="m4 14-2 2 6 6 2-2M12 12l8.5 8.5M3.5 3.5l6 6"/></>,
-    rocket: <><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2M9 17l-2-2 1-4.5C10 6 14 2.5 21.5 2.5 21.5 10 18 14 13.5 16L9 17Z"/><circle cx="15.5" cy="8.5" r="2"/><path d="m8 11-4-.5L2 12l5 5"/></>,
     database: <><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></>,
     file: <><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 12h6M9 16h6"/></>,
     spark: <><path d="m12 2 1.3 4.7L18 8l-4.7 1.3L12 14l-1.3-4.7L6 8l4.7-1.3L12 2ZM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14Z"/></>,
@@ -74,14 +70,6 @@ const timeline = [
   { icon: 'code' as IconName, n: '3', title: 'Desarrollo', copy: 'Construimos y probamos la automatización o el modelo de IA en entornos controlados.' },
   { icon: 'server' as IconName, n: '4', title: 'Implementación', copy: 'Desplegamos en el entorno acordado con seguridad, integraciones y capacitación.' },
   { icon: 'chart' as IconName, n: '5', title: 'Operación', copy: 'Monitoreamos, medimos y optimizamos para garantizar resultados sostenibles.' },
-]
-
-const delivery = [
-  { icon: 'users' as IconName, title: 'Entendemos', copy: 'Escuchamos, analizamos y alineamos expectativas.' },
-  { icon: 'target' as IconName, title: 'Planificamos', copy: 'Priorizamos iniciativas y definimos el plan de trabajo.' },
-  { icon: 'tools' as IconName, title: 'Construimos', copy: 'Desarrollamos, integramos y validamos la solución.' },
-  { icon: 'rocket' as IconName, title: 'Desplegamos', copy: 'Implementamos con seguridad y mínima disrupción.' },
-  { icon: 'chart' as IconName, title: 'Evolucionamos', copy: 'Medimos, aprendemos y mejoramos continuamente.' },
 ]
 
 const diagnosticDeliverables = [
@@ -439,31 +427,6 @@ function App() {
           </div>
         </section>
 
-        <section className="diagnostic section-block" id="evaluacion" aria-labelledby="diagnostic-title">
-          <div className="diagnostic-heading">
-            <span className="section-kicker">Punto de partida</span>
-            <h2 id="diagnostic-title">Primero, saber dónde vale la pena intervenir.</h2>
-            <p>La evaluación operativa conecta procesos, sistemas, datos, equipos y objetivos para decidir qué iniciativas de IA merecen inversión y en qué orden.</p>
-            <div className="diagnostic-meta">
-              <div><span>Alcance</span><strong>Un área operativa prioritaria</strong></div>
-              <div><span>Duración estimada</span><strong>5–10 días laborables</strong></div>
-              <div><span>Inicio</span><strong>Conversación de 30–45 minutos</strong></div>
-            </div>
-            <button className="button button-dark contact-trigger" type="button" onClick={openContact}>Conversar sobre su operación <Arrow/></button>
-          </div>
-          <div className="diagnostic-deliverables" aria-label="Entregables del diagnóstico operativo de inteligencia artificial">
-            {diagnosticDeliverables.map((item) => (
-              <article key={item.n}>
-                <span>{item.n}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
         <section className="services-intro section-frame" id="consultoria">
           <div>
             <span className="section-kicker">Capacidades de AUTONOMYX</span>
@@ -533,19 +496,26 @@ function App() {
           <LocalArchitecture />
         </section>
 
-        <section className="delivery section-block">
-          <div className="section-heading centered">
-            <span className="section-kicker">Cómo trabajamos</span>
-            <h2>Nuestro proceso de entrega</h2>
-            <p>Un enfoque pragmático para entregar soluciones de IA que generan impacto real.</p>
+        <section className="diagnostic section-block" id="evaluacion" aria-labelledby="diagnostic-title">
+          <div className="diagnostic-heading">
+            <span className="section-kicker">Punto de partida</span>
+            <h2 id="diagnostic-title">Primero, saber dónde vale la pena intervenir.</h2>
+            <p>La evaluación operativa conecta procesos, sistemas, datos, equipos y objetivos para decidir qué iniciativas de IA merecen inversión y en qué orden.</p>
+            <div className="diagnostic-meta">
+              <div><span>Alcance</span><strong>Un área operativa prioritaria</strong></div>
+              <div><span>Duración estimada</span><strong>5–10 días laborables</strong></div>
+              <div><span>Inicio</span><strong>Conversación de 30–45 minutos</strong></div>
+            </div>
+            <button className="button button-dark contact-trigger" type="button" onClick={openContact}>Conversar sobre su operación <Arrow/></button>
           </div>
-          <div className="delivery-grid">
-            {delivery.map((step, index) => (
-              <article className="delivery-step" key={step.title}>
-                <Icon name={step.icon} size={28}/>
-                <h3>{step.title}</h3>
-                <p>{step.copy}</p>
-                {index < delivery.length - 1 && <span className="delivery-arrow">›</span>}
+          <div className="diagnostic-deliverables" aria-label="Entregables del diagnóstico operativo de inteligencia artificial">
+            {diagnosticDeliverables.map((item) => (
+              <article key={item.n}>
+                <span>{item.n}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </div>
               </article>
             ))}
           </div>
