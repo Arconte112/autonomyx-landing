@@ -84,6 +84,29 @@ const delivery = [
   { icon: 'chart' as IconName, title: 'Evolucionamos', copy: 'Medimos, aprendemos y mejoramos continuamente.' },
 ]
 
+const diagnosticDeliverables = [
+  {
+    n: '01',
+    title: 'Mapa de oportunidades',
+    copy: 'Procesos y puntos de fricción donde la IA puede producir valor operativo medible.',
+  },
+  {
+    n: '02',
+    title: 'Priorización ejecutiva',
+    copy: 'Iniciativas ordenadas por impacto, viabilidad, riesgo y retorno esperado.',
+  },
+  {
+    n: '03',
+    title: 'Piloto recomendado',
+    copy: 'Una primera iniciativa con alcance, dependencias y criterios de éxito definidos.',
+  },
+  {
+    n: '04',
+    title: 'Hoja de ruta de 90 días',
+    copy: 'Secuencia concreta para validar, implementar y llevar la iniciativa a producción.',
+  },
+]
+
 const faqs = [
   {
     question: '¿Qué es AUTONOMYX?',
@@ -352,11 +375,11 @@ function App() {
         <section className="hero section-frame" id="inicio">
           <div className="hero-copy">
             <div className="eyebrow"><span/> Consultoría e implementación de IA · República Dominicana</div>
-            <h1>IA empresarial, de la estrategia a producción.</h1>
-            <p>AUTONOMYX diseña e implementa automatizaciones, agentes y soluciones de inteligencia artificial integradas a los procesos, datos y sistemas de su empresa.</p>
+            <h1>IA empresarial, de la oportunidad a producción.</h1>
+            <p>Ayudamos a empresas a identificar dónde la inteligencia artificial puede generar impacto económico real y a convertir esas oportunidades en sistemas funcionando.</p>
             <div className="hero-actions">
-              <button className="button button-dark contact-trigger" type="button" onClick={openContact}>Hablar con un consultor <Arrow/></button>
-              <a className="button button-light" href="#consultoria">Ver soluciones <Arrow/></a>
+              <button className="button button-dark contact-trigger" type="button" onClick={openContact}>Explorar una oportunidad <Arrow/></button>
+              <a className="button button-light" href="#evaluacion">Cómo comenzamos <Arrow/></a>
             </div>
           </div>
           <HeroDiagram />
@@ -386,12 +409,37 @@ function App() {
           </div>
         </section>
 
+        <section className="diagnostic section-block" id="evaluacion" aria-labelledby="diagnostic-title">
+          <div className="diagnostic-heading">
+            <span className="section-kicker">Punto de partida</span>
+            <h2 id="diagnostic-title">Primero, saber dónde vale la pena intervenir.</h2>
+            <p>La evaluación operativa conecta procesos, sistemas, datos, equipos y objetivos para decidir qué iniciativas de IA merecen inversión y en qué orden.</p>
+            <div className="diagnostic-meta">
+              <div><span>Alcance</span><strong>Un área operativa prioritaria</strong></div>
+              <div><span>Duración estimada</span><strong>5–10 días laborables</strong></div>
+              <div><span>Inicio</span><strong>Conversación de 30–45 minutos</strong></div>
+            </div>
+            <button className="button button-dark contact-trigger" type="button" onClick={openContact}>Conversar sobre su operación <Arrow/></button>
+          </div>
+          <div className="diagnostic-deliverables" aria-label="Entregables del diagnóstico operativo de inteligencia artificial">
+            {diagnosticDeliverables.map((item) => (
+              <article key={item.n}>
+                <span>{item.n}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="services-intro section-frame" id="consultoria">
           <div>
             <span className="section-kicker">Capacidades de AUTONOMYX</span>
             <h2>Consultoría, ingeniería e implementación en un solo equipo.</h2>
           </div>
-          <p>No entregamos una recomendación aislada ni una demostración sin continuidad. Identificamos el caso correcto, construimos la solución, la integramos con su operación y la llevamos a producción.</p>
+          <p>Comenzamos con evidencia operativa, definimos la iniciativa correcta y, cuando existe una oportunidad viable, asumimos su diseño, integración y puesta en producción.</p>
         </section>
 
         <section className="services" aria-label="Servicios de consultoría, automatización e inteligencia artificial">

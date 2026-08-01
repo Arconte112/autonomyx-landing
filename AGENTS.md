@@ -89,6 +89,13 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - El formulario envia mediante `POST /api/contact`; el backend valida los datos, incluye honeypot y limite basico por IP, y entrega el mensaje real a `alejandro@autonomyxdr.com` mediante SMTP de Zoho.
 - Variables requeridas en produccion: `ZOHO_SMTP_USER`, `ZOHO_SMTP_PASSWORD` y `CONTACT_TO_EMAIL`. `ZOHO_SMTP_PASSWORD` es secreto y debe vivir solo en Coolify; nunca guardarlo en Git, logs o este archivo.
 
+## Alineación Comercial - 1 Agosto 2026
+
+- La landing se alineó con la oferta comercial validada en outreach: AUTONOMYX identifica dónde la IA puede producir impacto económico real y convierte las oportunidades viables en sistemas funcionando.
+- El hero ya no abre vendiendo automatizaciones o agentes como productos predeterminados. La llamada principal es explorar una oportunidad operativa.
+- Se incorporó una sección de evaluación operativa que explica el punto de partida, el alcance focalizado, la duración estimada de 5–10 días laborables y cuatro entregables: mapa de oportunidades, priorización, piloto recomendado y hoja de ruta de 90 días.
+- El precio de referencia del diagnóstico no se publica por ahora. Se conserva como referencia comercial interna y se confirma después de la conversación inicial, según alcance.
+
 ## SEO Y Posicionamiento - 18 Julio 2026
 
 - Posicionamiento principal: AUTONOMYX es una firma de consultoria, ingenieria e implementacion de inteligencia artificial para empresas; no una agencia generica de bots ni un proveedor dedicado solamente a IA local.
