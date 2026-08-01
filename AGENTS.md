@@ -94,10 +94,12 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - La landing se alineó con la oferta comercial validada en outreach: AUTONOMYX identifica dónde la IA puede producir impacto económico real y convierte las oportunidades viables en sistemas funcionando.
 - El hero ya no abre vendiendo automatizaciones o agentes como productos predeterminados. La llamada principal es explorar una oportunidad operativa.
 - Se incorporó una sección de evaluación operativa que explica el punto de partida, el alcance focalizado, la duración estimada de 5–10 días laborables y cuatro entregables: mapa de oportunidades, priorización, piloto recomendado y hoja de ruta de 90 días.
+- La evaluación operativa aparece inmediatamente después de la sección de arquitectura flexible. La sección redundante `Nuestro proceso de entrega` fue retirada; se conserva el recorrido de implementación `Del diagnóstico a producción`.
 - El precio de referencia del diagnóstico no se publica por ahora. Se conserva como referencia comercial interna y se confirma después de la conversación inicial, según alcance.
 - El formulario de contacto pide el área, proceso o prioridad que el prospecto desea evaluar. No debe preguntar qué necesita automatizar, porque la solución surge después de comprender el contexto operativo.
 - La confirmación identifica a Alejandro como la persona que revisará el contexto y responderá; la llamada final se alinea con la promesa de identificar impacto económico real.
 - La landing incorpora una sección breve de evidencia bajo el rótulo `Experiencia técnica del fundador`. Presenta AutoNoticia, Leo y experiencia en SaaS e integraciones sin convertirlos en casos corporativos de AUTONOMYX ni atribuir resultados no demostrados. El copy aclara que parte de la experiencia precede la constitución de la firma.
+- El `lastmod` del sitemap debe avanzar cuando cambie materialmente el contenido público. La sección de evidencia y la revisión del posicionamiento actualizaron `public/sitemap.xml` al 1 de agosto de 2026.
 
 ## SEO Y Posicionamiento - 18 Julio 2026
 
