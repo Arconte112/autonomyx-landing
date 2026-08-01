@@ -107,6 +107,27 @@ const diagnosticDeliverables = [
   },
 ]
 
+const founderExperience = [
+  {
+    n: '01',
+    type: 'IA editorial',
+    title: 'AutoNoticia',
+    copy: 'Plataforma con agentes de investigación y redacción, revisión humana, planificación y publicación multicanal.',
+  },
+  {
+    n: '02',
+    type: 'IA conversacional',
+    title: 'Leo',
+    copy: 'Asistente empresarial conectado con WhatsApp, permisos, equipos, Jira, curación humana y trazabilidad operativa.',
+  },
+  {
+    n: '03',
+    type: 'Producto e integraciones',
+    title: 'SaaS en producción',
+    copy: 'Arquitectura y ejecución de plataformas con pagos, reservas, afiliados, dashboards, APIs e infraestructura cloud.',
+  },
+]
+
 const faqs = [
   {
     question: '¿Qué es AUTONOMYX?',
@@ -460,6 +481,23 @@ function App() {
               <a href={service.href}>Más información <Arrow/></a>
             </article>
           ))}
+        </section>
+
+        <section className="founder-proof section-block" id="experiencia" aria-labelledby="founder-proof-title">
+          <div className="founder-proof-heading">
+            <span className="section-kicker">Experiencia técnica del fundador</span>
+            <h2 id="founder-proof-title">La estrategia está respaldada por ejecución.</h2>
+            <p>AUTONOMYX es dirigida por Alejandro Contreras, ingeniero de software e IA. Parte de esta experiencia fue desarrollada antes de la constitución de la firma y hoy respalda su capacidad de llevar iniciativas desde arquitectura hasta producción.</p>
+          </div>
+          <div className="founder-proof-grid">
+            {founderExperience.map((item) => (
+              <article key={item.n}>
+                <div><span>{item.n}</span><small>{item.type}</small></div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="timeline section-block" id="proceso">

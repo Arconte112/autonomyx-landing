@@ -97,6 +97,7 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - El precio de referencia del diagnóstico no se publica por ahora. Se conserva como referencia comercial interna y se confirma después de la conversación inicial, según alcance.
 - El formulario de contacto pide el área, proceso o prioridad que el prospecto desea evaluar. No debe preguntar qué necesita automatizar, porque la solución surge después de comprender el contexto operativo.
 - La confirmación identifica a Alejandro como la persona que revisará el contexto y responderá; la llamada final se alinea con la promesa de identificar impacto económico real.
+- La landing incorpora una sección breve de evidencia bajo el rótulo `Experiencia técnica del fundador`. Presenta AutoNoticia, Leo y experiencia en SaaS e integraciones sin convertirlos en casos corporativos de AUTONOMYX ni atribuir resultados no demostrados. El copy aclara que parte de la experiencia precede la constitución de la firma.
 
 ## SEO Y Posicionamiento - 18 Julio 2026
 
