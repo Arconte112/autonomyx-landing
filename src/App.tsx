@@ -280,15 +280,15 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
             <span aria-hidden="true">✓</span>
             <p className="form-kicker">Solicitud enviada</p>
             <h2 id="contact-title">Gracias por contactarnos.</h2>
-            <p>Recibimos su información. Un consultor de AUTONOMYX se comunicará con usted.</p>
+            <p>Recibimos su información. Alejandro revisará el contexto y se comunicará con usted.</p>
             <button className="button button-dark contact-trigger" type="button" onClick={onClose}>Cerrar</button>
           </div>
         ) : (
           <>
             <div className="form-heading">
-              <span className="form-kicker">Hablemos de su operación</span>
-              <h2 id="contact-title">¿Qué podemos transformar?</h2>
-              <p>Comparta el contexto esencial. Revisaremos su necesidad y le responderemos directamente.</p>
+              <span className="form-kicker">Conversación inicial</span>
+              <h2 id="contact-title">Hablemos de su operación.</h2>
+              <p>Comparta el área o la prioridad que desea evaluar. Revisaremos el contexto y le responderemos directamente.</p>
             </div>
 
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -313,7 +313,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                 </label>
               </div>
               <label>
-                <span>¿Qué necesita automatizar o mejorar? *</span>
+                <span>¿Qué área, proceso o prioridad desea evaluar? *</span>
                 <textarea name="message" rows={5} minLength={20} maxLength={3000} required />
               </label>
               <label className="website-field" aria-hidden="true">
@@ -525,7 +525,7 @@ function App() {
           <span className="contact-dot dot-one"/><span className="contact-dot dot-two"/>
           <div className="contact-content">
             <Brand inverse />
-            <p>Convierta procesos en sistemas inteligentes.</p>
+            <p>Identifiquemos dónde la IA puede generar impacto económico real.</p>
             <button className="button button-white contact-trigger" type="button" onClick={openContact}>Hablar con un consultor <Arrow/></button>
           </div>
         </section>

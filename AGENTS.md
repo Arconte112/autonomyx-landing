@@ -95,6 +95,8 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 - El hero ya no abre vendiendo automatizaciones o agentes como productos predeterminados. La llamada principal es explorar una oportunidad operativa.
 - Se incorporó una sección de evaluación operativa que explica el punto de partida, el alcance focalizado, la duración estimada de 5–10 días laborables y cuatro entregables: mapa de oportunidades, priorización, piloto recomendado y hoja de ruta de 90 días.
 - El precio de referencia del diagnóstico no se publica por ahora. Se conserva como referencia comercial interna y se confirma después de la conversación inicial, según alcance.
+- El formulario de contacto pide el área, proceso o prioridad que el prospecto desea evaluar. No debe preguntar qué necesita automatizar, porque la solución surge después de comprender el contexto operativo.
+- La confirmación identifica a Alejandro como la persona que revisará el contexto y responderá; la llamada final se alinea con la promesa de identificar impacto económico real.
 
 ## SEO Y Posicionamiento - 18 Julio 2026
 
