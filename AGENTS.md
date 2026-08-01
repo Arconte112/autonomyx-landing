@@ -162,6 +162,14 @@ La implementacion fue verificada en escritorio a 1440x900 y en movil a 390x844, 
 
 ## Operacion Local
 
+## Atribucion Comercial - 1 Agosto 2026
+
+- El formulario conserva de forma silenciosa `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, la URL de llegada y el referente disponible en el navegador.
+- Estos datos se incluyen solamente en el correo interno que recibe Alejandro; no se instalan cookies, pixeles ni servicios externos de analitica.
+- Usar enlaces etiquetados en canales comerciales para distinguir conversaciones originadas por Apollo, asociaciones empresariales, LinkedIn, referidos u otras fuentes.
+- Convencion recomendada: `utm_source` identifica la plataforma o institucion, `utm_medium` el tipo de canal y `utm_campaign` la iniciativa. Ejemplo: `?utm_source=adoexpo&utm_medium=partnership&utm_campaign=diagnostico_ia_2026`.
+- No exponer estos parametros como prueba de identidad del prospecto: son atribucion orientativa y pueden modificarse manualmente.
+
 - Instalar dependencias: `npm install`.
 - Iniciar frontend: `npm run dev`.
 - Crear build de produccion: `npm run build`.

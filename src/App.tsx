@@ -246,7 +246,16 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
 
     const form = event.currentTarget
     const formData = new FormData(form)
-    const payload = Object.fromEntries(formData.entries())
+    const searchParams = new URLSearchParams(window.location.search)
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      utmSource: searchParams.get('utm_source') || '',
+      utmMedium: searchParams.get('utm_medium') || '',
+      utmCampaign: searchParams.get('utm_campaign') || '',
+      utmContent: searchParams.get('utm_content') || '',
+      landingPage: window.location.href,
+      referrer: document.referrer,
+    }
 
     try {
       const response = await fetch('/api/contact', {

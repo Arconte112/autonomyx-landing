@@ -48,6 +48,12 @@ function validateContact(body) {
     phone: clean(body.phone, 50),
     message: clean(body.message, 3000),
     website: clean(body.website, 200),
+    utmSource: clean(body.utmSource, 120),
+    utmMedium: clean(body.utmMedium, 120),
+    utmCampaign: clean(body.utmCampaign, 160),
+    utmContent: clean(body.utmContent, 160),
+    landingPage: clean(body.landingPage, 500),
+    referrer: clean(body.referrer, 500),
   }
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -84,6 +90,25 @@ app.post('/api/contact', async (request, response) => {
   const { contact } = result
   const companyLine = contact.company || 'No especificada'
   const phoneLine = contact.phone || 'No especificado'
+  const attribution = [
+    ['Fuente', contact.utmSource],
+    ['Medio', contact.utmMedium],
+    ['Campaña', contact.utmCampaign],
+    ['Contenido', contact.utmContent],
+    ['Página de llegada', contact.landingPage],
+    ['Referente', contact.referrer],
+  ].filter(([, value]) => value)
+  const attributionText = attribution.length
+    ? ['', 'Atribución:', ...attribution.map(([label, value]) => `${label}: ${value}`)]
+    : []
+  const attributionHtml = attribution.length
+    ? `
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid #ddd">
+        <p style="margin:0 0 12px"><strong>Atribución:</strong></p>
+        ${attribution.map(([label, value]) => `<p style="margin:6px 0"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`).join('')}
+      </div>
+    `
+    : ''
 
   try {
     await transporter.sendMail({
@@ -98,6 +123,7 @@ app.post('/api/contact', async (request, response) => {
         `Empresa: ${companyLine}`,
         `Correo: ${contact.email}`,
         `Teléfono: ${phoneLine}`,
+        ...attributionText,
         '',
         'Necesidad:',
         contact.message,
@@ -115,6 +141,7 @@ app.post('/api/contact', async (request, response) => {
             <p><strong>Teléfono:</strong> ${escapeHtml(phoneLine)}</p>
             <p style="margin-top:24px"><strong>Necesidad:</strong></p>
             <p style="white-space:pre-wrap;line-height:1.6">${escapeHtml(contact.message)}</p>
+            ${attributionHtml}
           </div>
         </div>
       `,
