@@ -27,6 +27,7 @@ const impactAreasByLocale: Record<Locale, ImpactArea[]> = {
     { code: '04', label: 'Logística', headline: 'Inventario, rutas y excepciones en sincronía.', description: 'Anticipa demanda, prioriza incidencias y coordina el flujo de cada pedido con menos fricción.', image: '/media/industry-logistics.webp', alt: 'Gerente observando la operación de un centro de distribución automatizado' },
     { code: '05', label: 'Servicios financieros', headline: 'Decisiones más rápidas, con evidencia.', description: 'Agiliza revisiones, detecta anomalías y conserva trazabilidad para cada acción relevante.', image: '/media/industry-financial-services.webp', alt: 'Equipo de operaciones financieras revisando una excepción de riesgo' },
     { code: '06', label: 'Energía', headline: 'Activos críticos bajo vigilancia continua.', description: 'Detecta señales tempranas, prioriza mantenimiento y ayuda a coordinar operaciones con mayor resiliencia.', image: '/media/industry-energy.webp', alt: 'Ingenieros supervisando una instalación energética desde un centro de control' },
+    { code: '07', label: 'Legal', headline: 'Contratos y obligaciones bajo control.', description: 'Acelera revisiones, identifica riesgos y conserva trazabilidad en cada aprobación y vencimiento.', image: '/media/industry-legal.webp', alt: 'Equipo jurídico empresarial revisando contratos y obligaciones con apoyo tecnológico' },
   ],
   en: [
     { code: '01', label: 'Manufacturing', headline: 'Production with fewer interruptions.', description: 'AI connects maintenance, quality, and planning to anticipate deviations and keep operations moving.', image: '/media/industry-manufacturing.webp', alt: 'Engineer supervising an automated manufacturing line' },
@@ -35,6 +36,7 @@ const impactAreasByLocale: Record<Locale, ImpactArea[]> = {
     { code: '04', label: 'Logistics', headline: 'Inventory, routes, and exceptions in sync.', description: 'Anticipate demand, prioritize incidents, and coordinate every order with less friction.', image: '/media/industry-logistics.webp', alt: 'Manager observing an automated distribution center' },
     { code: '05', label: 'Financial services', headline: 'Faster decisions, backed by evidence.', description: 'Accelerate reviews, detect anomalies, and preserve traceability for every relevant action.', image: '/media/industry-financial-services.webp', alt: 'Financial operations team reviewing a risk exception' },
     { code: '06', label: 'Energy', headline: 'Critical assets under continuous watch.', description: 'Detect early signals, prioritize maintenance, and coordinate operations with greater resilience.', image: '/media/industry-energy.webp', alt: 'Engineers supervising an energy facility from a control room' },
+    { code: '07', label: 'Legal', headline: 'Contracts and obligations under control.', description: 'Accelerate reviews, identify risks, and preserve traceability across every approval and deadline.', image: '/media/industry-legal.webp', alt: 'Enterprise legal team reviewing contracts and obligations with technology support' },
   ],
 }
 
