@@ -93,7 +93,7 @@ Alejandro eligio la version clara `landing-concepts/04-bright-private-ai-infrast
 
 - La landing se alineó con la oferta comercial validada en outreach: AUTONOMYX identifica dónde la IA puede producir impacto económico real y convierte las oportunidades viables en sistemas funcionando.
 - El hero ya no abre vendiendo automatizaciones o agentes como productos predeterminados. La llamada principal es explorar una oportunidad operativa.
-- Se incorporó una sección de evaluación operativa que explica el punto de partida, el alcance focalizado, la duración estimada de 5–10 días laborables y cuatro entregables: mapa de oportunidades, priorización, piloto recomendado y hoja de ruta de 90 días.
+- Se incorporó una sección de evaluación operativa que explica el punto de partida, el alcance focalizado, la duración estimada de 5–10 días laborables y cuatro entregables: mapa de oportunidades, priorización, piloto recomendado y hoja de ruta de 4 semanas.
 - La evaluación operativa aparece inmediatamente después de la sección de arquitectura flexible. La sección redundante `Nuestro proceso de entrega` fue retirada; se conserva el recorrido de implementación `Del diagnóstico a producción`.
 - El precio de referencia del diagnóstico no se publica por ahora. Se conserva como referencia comercial interna y se confirma después de la conversación inicial, según alcance.
 - El formulario de contacto pide el área, proceso o prioridad que el prospecto desea evaluar. No debe preguntar qué necesita automatizar, porque la solución surge después de comprender el contexto operativo.
@@ -164,6 +164,19 @@ La implementacion fue verificada en escritorio a 1440x900 y en movil a 390x844, 
 
 ## Operacion Local
 
+## Rediseño Visual Inspirado En Palantir - 4 Agosto 2026
+
+- La landing adopta una estructura editorial inspirada en la homepage vigente de Palantir: anuncio superior, navegación flotante, hero cinematográfico, franja horizontal de oportunidades, manifiesto, capacidades numeradas, bloque institucional, principios, CTA doble y footer amplio.
+- El hero usa el video aprobado por Alejandro en `public/media/autonomyx-hero.mp4`, reproducido automáticamente, en bucle, sin audio y con una capa oscura para mantener el texto como foco principal.
+- La landing es bilingüe, con español como idioma predeterminado y un selector `ES/EN` persistido localmente. El hero muestra `Automatización impulsada por IA para cada decisión` en español y `AI-Powered Automation for Every Decision` únicamente cuando se selecciona inglés. Mantener traducidos de forma consistente la navegación, secciones, preguntas frecuentes, formulario y footer.
+- Los casos, proyectos, logos, testimonios y métricas de Palantir no se replican. Mientras AUTONOMYX no tenga casos públicos aprobados, esa función narrativa se sustituye por áreas de impacto, capacidades y principios de implementación sin afirmaciones inventadas.
+- La paleta continúa siendo blanco y negro/gris, con tipografía editorial ligera, bordes finos, bloques rectangulares y visuales abstractos construidos en CSS.
+- Las secciones de Capacidades y Principios no usan encabezados auxiliares pequeños ni descriptores laterales; comienzan directamente con su titular principal. Los copies vigentes incluyen `La tecnología al servicio del resultado.`, `Soluciones listas para operar` y `Lo que necesita saber.`
+- La antigua cuadrícula de oportunidades fue reemplazada por un carrusel de industrias con navegación centrada y avance automático: manufactura, servicio al cliente, farmacéutica, logística, servicios financieros y energía.
+- El bloque de evaluación usa `public/media/operations-control-room-color.webp` como fotografía limpia y realmente a color. No debe cubrirse con filtros monocromáticos, dashboards, SVG u otras interfaces superpuestas.
+- Las imágenes son recursos editoriales generados, no fotografías del equipo, clientes o instalaciones reales de AUTONOMYX. No se añade la etiqueta visible `Visual conceptual`, porque introduce ruido innecesario en la composición.
+- Las fotografías se muestran sin filtros CSS de escala de grises, contraste u oscurecimiento. En las tarjetas de áreas, el bloque de copy se mantiene anclado en la parte inferior para liberar los rostros y el contexto visual.
+
 ## Atribucion Comercial - 1 Agosto 2026
 
 - El formulario conserva de forma silenciosa `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, la URL de llegada y el referente disponible en el navegador.
@@ -183,3 +196,15 @@ Cuando Alejandro diga "iniciar proyecto", levantar solo este frontend y abrirlo 
 - Dirigirse a Alejandro como "Senor" por defecto en conversaciones.
 - Mantener comunicacion directa, objetiva y sin halagos innecesarios.
 - Priorizar simplicidad practica por encima de burocracia o perfeccionismo excesivo.
+
+## Ajustes Visuales - 4 Agosto 2026
+
+- El sistema tipografico toma como referencia la distribucion editorial de Palantir sin reutilizar sus archivos propietarios: `Inter Tight` para titulares, `Inter` para lectura e interfaz y `IBM Plex Mono` para etiquetas tecnicas, codigos y numeracion.
+- El header principal queda simplificado a marca, selector de idioma y CTA `Comenzar`; se retiraron los enlaces `Capacidades`, `Enfoque` y `Empresa`, junto con el menu movil redundante.
+- Los cuatro principios de implementacion usan escenas editoriales generadas y optimizadas: `principle-impact.webp`, `principle-integration.webp`, `principle-control.webp` y `principle-production.webp`. Cada imagen representa su principio sin filtros, interfaces superpuestas ni estetica de demostracion.
+- El carrusel de industrias usa seis escenas editoriales propias en `public/media/industry-*.webp`. Las tarjetas son panoramicas, muestran el nombre de la industria sin numeracion, una promesa breve y una descripcion concisa.
+- El carrusel cambia con un desplazamiento lateral suave, avanza automaticamente de ida y vuelta, se puede controlar desde las pestañas superiores y no muestra controles inferiores redundantes.
+- En movil, el carrusel adopta una composicion editorial vertical inspirada en la referencia de Palantir: oculta la fila de pestañas, presenta una imagen casi cuadrada con la tarjeta siguiente asomandose y coloca debajo una sola etiqueta de industria, la promesa y la descripcion. Escritorio conserva la tarjeta panoramica con copy superpuesto.
+- En el manifiesto central, `empresa` comparte el énfasis negro de `datos, procesos y conocimiento`; las referencias `/0.x` fueron retiradas de la lista de capacidades y el RNC dejó de mostrarse en el pie público.
+- La columna visual de capacidades ya no usa las siglas `DX`, `AX`, `AI`, `IN` y `PR`. Cada capacidad tiene un microdiagrama SVG lineal propio que representa oportunidad, flujo, agentes, integración o perímetro privado, con trazado y pulsación sutiles al pasar el cursor.
+- El header se presenta sobre el video con una placa negra muy ligera y semitransparente, borde tenue y desenfoque sutil; no debe sentirse como un bloque oscuro dominante. El selector visible ES/EN fue retirado: la interfaz usa español cuando el idioma principal del navegador comienza por `es` e inglés en los demás casos.
