@@ -97,6 +97,7 @@ const pageCopy = {
     heroLine1: 'Automatización impulsada por IA', heroLine2: 'para cada decisión', scroll: 'Desplácese para explorar', impactTitle: 'Industrias', viewCapabilities: 'Ver capacidades',
     manifestoBefore: 'Convertimos ', manifestoStrong: 'datos, procesos y conocimiento', manifestoMiddle: ' disperso en sistemas que ayudan a su ', manifestoCompany: 'empresa', manifestoAfter: ' a decidir y actuar con mayor claridad.',
     capabilitiesTitle: 'De la oportunidad a producción.',
+    softwareBefore: 'Nuestro software te muestra ', softwareStrong: 'exactamente la información necesaria', softwareMiddle: ' para tomar tu ', softwareDecision: 'próxima decisión.',
     evaluationAlt: 'Centro de operaciones supervisando sistemas industriales', evaluationEyebrow: 'Evaluación operativa', evaluationTitle: 'Primero encontramos la decisión correcta.', evaluationBody: 'En 5–10 días laborables analizamos un área concreta, priorizamos oportunidades y definimos un piloto viable con una hoja de ruta de 4 semanas.', explore: 'Explorar una oportunidad',
     principlesTitle: 'La tecnología al servicio del resultado.', faqEyebrow: 'Preguntas frecuentes', faqTitle: 'Lo que necesita saber.', nextSteps: 'Próximos pasos', evaluate: 'Evaluar una oportunidad', discover: 'Conocer capacidades',
     footerDescription: 'Consultoría, ingeniería e implementación de inteligencia artificial.', footerLabel: 'Enlaces del pie', operationalAssessment: 'Diagnóstico operativo', automation: 'Automatización con IA', agents: 'Agentes y asistentes', privateAi: 'IA privada e híbrida', whatIs: 'Qué es AUTONOMYX', howWeStart: 'Cómo comenzamos', contact: 'Contacto', coverage: 'Cobertura', dominicanRepublic: 'República Dominicana', latinAmerica: 'América Latina', backToTop: 'Volver arriba',
@@ -106,6 +107,7 @@ const pageCopy = {
     heroLine1: 'AI-Powered Automation', heroLine2: 'for Every Decision', scroll: 'Scroll to explore', impactTitle: 'Industries', viewCapabilities: 'View capabilities',
     manifestoBefore: 'We turn scattered ', manifestoStrong: 'data, processes, and knowledge', manifestoMiddle: ' into systems that help your ', manifestoCompany: 'company', manifestoAfter: ' decide and act with greater clarity.',
     capabilitiesTitle: 'From opportunity to production.',
+    softwareBefore: 'Our software shows you ', softwareStrong: 'exactly the information you need', softwareMiddle: ' to make your ', softwareDecision: 'next decision.',
     evaluationAlt: 'Operations center supervising industrial systems', evaluationEyebrow: 'Operational assessment', evaluationTitle: 'First, we find the right decision.', evaluationBody: 'In 5–10 business days, we analyze a specific area, prioritize opportunities, and define a viable pilot with a 4-week roadmap.', explore: 'Explore an opportunity',
     principlesTitle: 'Technology in service of outcomes.', faqEyebrow: 'Frequently asked questions', faqTitle: 'What you need to know.', nextSteps: 'Next steps', evaluate: 'Evaluate an opportunity', discover: 'Explore capabilities',
     footerDescription: 'Artificial intelligence consulting, engineering, and implementation.', footerLabel: 'Footer links', operationalAssessment: 'Operational assessment', automation: 'AI automation', agents: 'Agents and assistants', privateAi: 'Private and hybrid AI', whatIs: 'What is AUTONOMYX', howWeStart: 'How we begin', contact: 'Contact', coverage: 'Coverage', dominicanRepublic: 'Dominican Republic', latinAmerica: 'Latin America', backToTop: 'Back to top',
@@ -485,6 +487,10 @@ function App() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="manifesto decision-manifesto page-width" aria-label={locale === 'es' ? 'Principio de producto' : 'Product principle'}>
+          <p data-reveal="up">{copy.softwareBefore}<strong>{copy.softwareStrong}</strong>{copy.softwareMiddle}<strong>{copy.softwareDecision}</strong></p>
         </section>
 
         <section className="evaluation" id="enfoque">
