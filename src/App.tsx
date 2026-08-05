@@ -314,6 +314,60 @@ function App() {
   }, [locale])
 
   useEffect(() => {
+    const root = document.documentElement
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const revealNodes = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
+    const progress = document.querySelector<HTMLElement>('.scroll-progress')
+    const header = document.querySelector<HTMLElement>('.site-header')
+    let observer: IntersectionObserver | undefined
+    let revealFrame = 0
+    let progressFrame = 0
+
+    root.classList.add('motion-ready')
+
+    if (reducedMotion) {
+      revealNodes.forEach((node) => node.classList.add('is-visible'))
+    } else {
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('is-visible')
+          observer?.unobserve(entry.target)
+        })
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' })
+
+      revealFrame = window.requestAnimationFrame(() => revealNodes.forEach((node) => observer?.observe(node)))
+    }
+
+    const updateProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight
+      const ratio = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0
+      progress?.style.setProperty('--scroll-progress', ratio.toString())
+      header?.classList.toggle('is-scrolled', window.scrollY > 24)
+      progressFrame = 0
+    }
+
+    const requestProgressUpdate = () => {
+      if (progressFrame) return
+      progressFrame = window.requestAnimationFrame(updateProgress)
+    }
+
+    updateProgress()
+    window.addEventListener('scroll', requestProgressUpdate, { passive: true })
+    window.addEventListener('resize', requestProgressUpdate)
+
+    return () => {
+      observer?.disconnect()
+      window.cancelAnimationFrame(revealFrame)
+      window.cancelAnimationFrame(progressFrame)
+      window.removeEventListener('scroll', requestProgressUpdate)
+      window.removeEventListener('resize', requestProgressUpdate)
+      header?.classList.remove('is-scrolled')
+      root.classList.remove('motion-ready')
+    }
+  }, [])
+
+  useEffect(() => {
     if (industryPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const timer = window.setTimeout(() => {
       setActiveIndustry((current) => {
@@ -342,6 +396,13 @@ function App() {
 
   return (
     <>
+      <div className="scroll-progress" aria-hidden="true" />
+      <header className="site-header">
+        <Brand inverse locale={locale} />
+        <div className="header-actions">
+          <button className="header-contact" type="button" onClick={openContact}>{copy.start}</button>
+        </div>
+      </header>
       <main>
         <section className="hero" id="inicio">
           <div className="hero-video-slot" aria-hidden="true">
@@ -349,13 +410,6 @@ function App() {
               <source src="/media/autonomyx-hero.mp4" type="video/mp4" />
             </video>
           </div>
-
-          <header className="site-header">
-            <Brand inverse locale={locale} />
-            <div className="header-actions">
-              <button className="header-contact" type="button" onClick={openContact}>{copy.start}</button>
-            </div>
-          </header>
 
           <div className={`hero-content hero-content-${locale}`}>
             <h1><span>{copy.heroLine1}</span>{' '}<span>{copy.heroLine2}</span></h1>
@@ -374,7 +428,7 @@ function App() {
             if (!event.currentTarget.contains(event.relatedTarget)) setIndustryPaused(false)
           }}
         >
-          <div className="industry-header">
+          <div className="industry-header" data-reveal="up">
             <div className="industry-tabs" role="tablist" aria-label={copy.impactTitle}>
               {impactAreas.map((area, index) => (
                 <button
@@ -393,7 +447,7 @@ function App() {
               ))}
             </div>
           </div>
-          <div className="industry-stage">
+          <div className="industry-stage" data-reveal="scale">
             {impactAreas.map((area, index) => (
               <article
                 className={`industry-card${index === activeIndustry ? ' is-active' : ''}`}
@@ -416,14 +470,14 @@ function App() {
         </section>
 
         <section className="manifesto page-width" id="empresa">
-          <p>{copy.manifestoBefore}<strong>{copy.manifestoStrong}</strong>{copy.manifestoMiddle}<strong>{copy.manifestoCompany}</strong>{copy.manifestoAfter}</p>
+          <p data-reveal="up">{copy.manifestoBefore}<strong>{copy.manifestoStrong}</strong>{copy.manifestoMiddle}<strong>{copy.manifestoCompany}</strong>{copy.manifestoAfter}</p>
         </section>
 
         <section className="capabilities page-width" id="capacidades" aria-labelledby="capabilities-title">
-          <h2 id="capabilities-title">{copy.capabilitiesTitle}</h2>
+          <h2 id="capabilities-title" data-reveal="up">{copy.capabilitiesTitle}</h2>
           <div className="capability-list">
             {capabilities.map((capability) => (
-              <article className="capability-row" key={capability.title}>
+              <article className="capability-row" key={capability.title} data-reveal="up">
                 <p>{capability.copy}</p>
                 <CapabilityGlyph type={capability.glyph} />
                 <h3>{capability.title}</h3>
@@ -435,10 +489,10 @@ function App() {
 
         <section className="evaluation" id="enfoque">
           <div className="evaluation-inner page-width">
-            <div className="evaluation-visual">
+            <div className="evaluation-visual" data-reveal="clip">
               <img className="evaluation-photo" src="/media/operations-control-room-color.webp" alt={copy.evaluationAlt} loading="lazy" decoding="async" />
             </div>
-            <div className="evaluation-copy">
+            <div className="evaluation-copy" data-reveal="right">
               <p className="eyebrow">{copy.evaluationEyebrow}</p>
               <h2>{copy.evaluationTitle}</h2>
               <p>{copy.evaluationBody}</p>
@@ -448,10 +502,10 @@ function App() {
         </section>
 
         <section className="principles page-width" aria-labelledby="principles-title">
-          <h2 id="principles-title">{copy.principlesTitle}</h2>
+          <h2 id="principles-title" data-reveal="up">{copy.principlesTitle}</h2>
           <div className="principles-grid">
             {principles.map(([letter, title, copy, image, alt]) => (
-              <article key={letter}>
+              <article key={letter} data-reveal="up">
                 <div className="principle-image">
                   <img src={image} alt={alt} width="1200" height="900" loading="lazy" decoding="async" />
                   <span className="principle-code">—— {letter}</span>
@@ -466,13 +520,13 @@ function App() {
         </section>
 
         <section className="faq page-width" aria-labelledby="faq-title">
-          <div className="faq-heading">
+          <div className="faq-heading" data-reveal="left">
             <p className="eyebrow">{copy.faqEyebrow}</p>
             <h2 id="faq-title">{copy.faqTitle}</h2>
           </div>
           <div className="faq-list">
             {faqs.map((faq) => (
-              <details key={faq.question}>
+              <details key={faq.question} data-reveal="right">
                 <summary>{faq.question}<span>+</span></summary>
                 <p>{faq.answer}</p>
               </details>
@@ -481,24 +535,24 @@ function App() {
         </section>
 
         <section className="dual-cta page-width" aria-label={copy.nextSteps}>
-          <button className="cta-panel cta-light" type="button" onClick={openContact}><span>{copy.evaluate}</span><Arrow/></button>
-          <a className="cta-panel cta-dark" href="#capacidades"><span>{copy.discover}</span><Arrow/></a>
+          <button className="cta-panel cta-light" type="button" onClick={openContact} data-reveal="left"><span>{copy.evaluate}</span><Arrow/></button>
+          <a className="cta-panel cta-dark" href="#capacidades" data-reveal="right"><span>{copy.discover}</span><Arrow/></a>
         </section>
       </main>
 
       <footer className="footer page-width">
         <div className="footer-main">
-          <div>
+          <div data-reveal="up">
             <Brand locale={locale} />
             <p>{copy.footerDescription}</p>
           </div>
           <nav aria-label={copy.footerLabel}>
-            <div><b>{copy.capabilities}</b><a href="#capacidades">{copy.operationalAssessment}</a><a href="#capacidades">{copy.automation}</a><a href="#capacidades">{copy.agents}</a><a href="#capacidades">{copy.privateAi}</a></div>
-            <div><b>{copy.company}</b><a href="#empresa">{copy.whatIs}</a><a href="#enfoque">{copy.howWeStart}</a><button type="button" onClick={openContact}>{copy.contact}</button></div>
-            <div><b>{copy.coverage}</b><span>{copy.dominicanRepublic}</span><span>{copy.latinAmerica}</span><a href="mailto:alejandro@autonomyxdr.com">alejandro@autonomyxdr.com</a></div>
+            <div data-reveal="up"><b>{copy.capabilities}</b><a href="#capacidades">{copy.operationalAssessment}</a><a href="#capacidades">{copy.automation}</a><a href="#capacidades">{copy.agents}</a><a href="#capacidades">{copy.privateAi}</a></div>
+            <div data-reveal="up"><b>{copy.company}</b><a href="#empresa">{copy.whatIs}</a><a href="#enfoque">{copy.howWeStart}</a><button type="button" onClick={openContact}>{copy.contact}</button></div>
+            <div data-reveal="up"><b>{copy.coverage}</b><span>{copy.dominicanRepublic}</span><span>{copy.latinAmerica}</span><a href="mailto:alejandro@autonomyxdr.com">alejandro@autonomyxdr.com</a></div>
           </nav>
         </div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} AUTONOMYX SRL</span><a href="#inicio">{copy.backToTop} ↑</a></div>
+        <div className="footer-bottom" data-reveal="up"><span>© {new Date().getFullYear()} AUTONOMYX SRL</span><a href="#inicio">{copy.backToTop} ↑</a></div>
       </footer>
 
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} locale={locale} />

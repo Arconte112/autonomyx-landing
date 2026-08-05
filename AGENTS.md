@@ -199,6 +199,8 @@ Cuando Alejandro diga "iniciar proyecto", levantar solo este frontend y abrirlo 
 
 ## Ajustes Visuales - 4 Agosto 2026
 
+- La landing usa un sistema de movimiento editorial sobrio: entrada escalonada del hero, progreso de lectura, revelados al hacer scroll, tarjetas y listas con delays progresivos, cortina sobre la imagen de evaluacion y microinteracciones en botones, enlaces, FAQ y glifos. Las animaciones se ejecutan una sola vez por seccion y se desactivan de forma accesible cuando el navegador solicita `prefers-reduced-motion`.
+- El header permanece fijo durante todo el scroll. Sobre el hero usa una placa negra translúcida ligera y, al abandonar la parte superior, aumenta su opacidad y sombra para conservar contraste sobre las secciones claras; los anclajes internos incluyen margen para que sus títulos no queden ocultos detrás de la barra.
 - El sistema tipografico toma como referencia la distribucion editorial de Palantir sin reutilizar sus archivos propietarios: `Inter Tight` para titulares, `Inter` para lectura e interfaz y `IBM Plex Mono` para etiquetas tecnicas, codigos y numeracion.
 - El header principal queda simplificado a marca, selector de idioma y CTA `Comenzar`; se retiraron los enlaces `Capacidades`, `Enfoque` y `Empresa`, junto con el menu movil redundante.
 - Los cuatro principios de implementacion usan escenas editoriales generadas y optimizadas: `principle-impact.webp`, `principle-integration.webp`, `principle-control.webp` y `principle-production.webp`. Cada imagen representa su principio sin filtros, interfaces superpuestas ni estetica de demostracion.
